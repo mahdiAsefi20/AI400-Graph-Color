@@ -248,3 +248,17 @@ class GeneticAlgorithm:
       print("              ---------------------------------------------------------")
     
     return Averages, Bests
+
+################################################################################################
+
+my_graph = Graph.read_file('/content/sample-graph.gp') #graph file path
+genetic = GeneticAlgorithm( my_graph, n_population= 3, epoch= 100, mutate_probability= 0.2)
+Averages, Bests = genetic.train(genetic.crossover_onePoint)
+plt.figure(figsize=(10,5))
+plt.subplot(121)
+plt.plot(Averages)
+plt.title("Averages")
+plt.subplot(122)
+plt.plot(Bests)
+plt.title("Best")
+plt.show()
